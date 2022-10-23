@@ -1,9 +1,10 @@
 from crawling import crawlingWebtoon
+from static import DATA_PATH
 from Webtoon import Webtoon
 import csv
 
 #STATIC 변수 선언
-fileName = "webtoons.csv"
+fileName = DATA_PATH + "/webtoons.csv"
 weekly = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 
 webtoonList = crawlingWebtoon() #웹툰 데이터 가져오기
