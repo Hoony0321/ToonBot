@@ -1,5 +1,12 @@
+import torch
+from transformers import BertModel
 from kobert_tokenizer import KoBERTTokenizer
-tokenizer = KoBERTTokenizer.from_pretrained('skt/kobert-base-v1')
-data = tokenizer.encode("한국어 모델을 공유합니다.")
 
-print(f'토큰화 데이터 : {data}')
+text = "한국어 모델을 공유합니다."
+tokenizer = KoBERTTokenizer.from_pretrained('skt/kobert-base-v1')
+model = BertModel.from_pretrained('skt/kobert-base-v1')
+inputs = tokenizer.batch_encode_plus([text])
+out = model(input_ids = torch.tensor(inputs['input_ids']),
+              attention_mask = torch.tensor(inputs['attention_mask']))
+
+print(out)
