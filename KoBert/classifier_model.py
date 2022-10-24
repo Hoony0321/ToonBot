@@ -20,7 +20,7 @@ def build_classifier_model():
   return tf.keras.Model(text_input, net)
 
 
-text_test = ['this is such an amazing movie!']
+text_test = ['한국어 테스트 문장입니다.']
 classifier_model = build_classifier_model()
 bert_raw_result = classifier_model(tf.constant(text_test))
 print(tf.sigmoid(bert_raw_result))
