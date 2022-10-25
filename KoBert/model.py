@@ -1,4 +1,3 @@
-# import torch
 import tensorflow_text as text
 import tensorflow as tf
 import tensorflow_hub as hub
@@ -18,9 +17,3 @@ def build_classifier_model():
   net = tf.keras.layers.Dropout(0.1)(net)
   net = tf.keras.layers.Dense(1, activation=None, name='classifier')(net)
   return tf.keras.Model(text_input, net)
-
-
-text_test = ['한국어 테스트 문장입니다.']
-classifier_model = build_classifier_model()
-bert_raw_result = classifier_model(tf.constant(text_test))
-print(tf.sigmoid(bert_raw_result))
