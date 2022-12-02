@@ -27,7 +27,7 @@ def loadWebtoonData():
 def loadDataset():
     labels = loadLabelData()
     webtoons = loadWebtoonData()
-    dataset = tf.data.Dataset.from_tensor_slices((webtoons, labels))
+    dataset = tf.data.Dataset.from_tensor_slices((webtoons, labels)).batch(32)
     return dataset
 
 
@@ -43,6 +43,3 @@ def get_dataset_partitions_tf(ds, ds_size, train_split=0.8, val_split=0.2, shuff
 
     return train_ds, val_ds
 
-dataset = loadDataset()
-trainSet, validationSet = get_dataset_partitions_tf(dataset, len(dataset), shuffle=True)
-print(len(trainSet))
