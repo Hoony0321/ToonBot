@@ -4,7 +4,7 @@ import tensorflow_hub as hub
 from matplotlib import pyplot as plt
 from official.nlp import optimization
 
-from KoBert import DataSetUtils
+from KoBert import utils
 from KoBert.static import MODEL_PATH
 
 kobert_preprocessor_url = "https://tfhub.dev/jeongukjae/distilkobert_cased_preprocess/1"
